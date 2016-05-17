@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.thinkaurelius.titan</groupId>
+  <artifactId>titan-hadoop-core</artifactId>
+  <version>1.1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20160517.031636</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20160517031636</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.1.0-20160517.031636-1</value>
+        <updated>20160517031636</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.1.0-20160517.031636-1</value>
+        <updated>20160517031636</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>shared-resources</classifier>
+        <extension>jar</extension>
+        <value>1.1.0-20160517.031636-1</value>
+        <updated>20160517031636</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>example-data</classifier>
+        <extension>zip</extension>
+        <value>1.1.0-20160517.031636-1</value>
+        <updated>20160517031636</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
