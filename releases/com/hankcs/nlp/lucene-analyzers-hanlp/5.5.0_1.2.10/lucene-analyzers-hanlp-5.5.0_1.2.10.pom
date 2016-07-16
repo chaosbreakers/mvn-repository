@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hankcs.nlp</groupId>
+    <artifactId>lucene-analyzers-hanlp</artifactId>
+    <version>5.5.0_1.2.10</version>
+
+    <name>lucene-analyzers-hanlp</name>
+    <url>https://github.com/donbeave/lucene-analyzers-hanlp</url>
+
+    <organization>
+        <name>AZ</name>
+        <url>http://www.zhokhov.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>hankcs</id>
+            <name>hankcs</name>
+        </developer>
+        <developer>
+            <id>donbeave</id>
+            <name>Alexey Zhokhov</name>
+            <email>alexey@zhokhov.com</email>
+        </developer>
+        <developer>
+            <id>boliza</id>
+            <name>Range Tsao</name>
+            <email>cao.zhifu@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/donbeave/lucene-analyzers-hanlp</connection>
+        <developerConnection>scm:git:git://github.com/donbeave/lucene-analyzers-hanlp</developerConnection>
+        <url>http://github.com/donbeave/lucene-analyzers-hanlp</url>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <hanlp.version>portable-1.2.10</hanlp.version>
+        <lucene.version>5.5.0</lucene.version>
+
+        <javac.src.version>1.7</javac.src.version>
+        <javac.target.version>1.7</javac.target.version>
+        <maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.hankcs</groupId>
+            <artifactId>hanlp</artifactId>
+            <version>${hanlp.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>${lucene.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queryparser</artifactId>
+            <version>${lucene.version}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>jakarta-regexp</groupId>
+                    <artifactId>jakarta-regexp</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analyzers-common</artifactId>
+            <version>${lucene.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>openmg-release</id>
+            <url>https://github.com/openmg/mvn-repository/raw/master/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>openmg-snapshot</id>
+            <url>https://github.com/openmg/mvn-repository/raw/master/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <target>${javac.src.version}</target>
+                    <source>${javac.target.version}</source>
+                </configuration>
+                <version>${maven.compiler.plugin.version}</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
